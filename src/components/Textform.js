@@ -11,16 +11,45 @@ export default function Textform(props) {
   };
 
   const Convertolo = () => {
-    console.log("oj to uppercase");
+    
      let newtext = text.toLowerCase()
      setText(newtext)
   };
 
+  const CopyText = () => {
+   navigator.clipboard.writeText(text)
+   .then(() => {
+    // let copytext1 = document.getElementById("copytext1");
+    // copytext1.textContent = "Copied"; // Change the text content of the button
+    // alert("Text copied");
+    
+  })
+  .catch((error) => {
+    console.error("Error copying text: ", error);
+    alert("Failed to copy text to clipboard.");
+  });
+    // alert("text copied")
+  };
+  const pastetext = async () => {
+    try {
+      const pasted = await navigator.clipboard.readText();
+      setText(text + " "+pasted);
+    } catch (error) {
+      console.error("Error pasting text: ", error);
+
+    }
+  };
+  
   const onchangetext = (event) => {
    
-    setText(event.target.value)  // helps us in wrting with help of setetxt
+    setText(event.target.value) 
+     // helps us in wrting with help of setetxt
+ 
 
   };
+  const cleartext = () =>{
+    setText(" ")
+  }
   return (
     <>
       <div className="container">
@@ -32,6 +61,9 @@ export default function Textform(props) {
         <div className="btnclass">
           <button type="button" onClick={Convertoup} className="btn btn-primary mx-4" >{props.nameOfBtn1} </button>
           <button type="button" onClick={Convertolo} className="btn btn-primary mx-4" >{props.nameOfBtn2} </button>
+          <button type="button" onClick={CopyText} className="  btn btn-primary mx-4" id ="copytext1" >{props.nameOfBtn3} </button>
+          <button type="button" onClick={pastetext} className="btn btn-primary mx-4" >{props.nameOfBtn4} </button>
+          <button type="button" onClick={cleartext} className="btn btn-primary mx-4" >{props.nameOfBtn5} </button>
         </div>
         <div className="infotext my-5">
           <h1>Your text info</h1>

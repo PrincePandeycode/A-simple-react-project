@@ -8,7 +8,7 @@ function App() {
       <Navbar title = "Textutils" Home = "Home"/>
       {/* <Navbar/>   */}
       
-      <Textform heading = "enter your text here" nameOfBtn1 ="conert to uppercase" nameOfBtn2 ="conert to Lowecase" />
+      <Textform heading = "enter your text here" nameOfBtn1 ="conert to uppercase" nameOfBtn2 ="conert to Lowecase" nameOfBtn3 = "copy Text" nameOfBtn4 = "Paste here" nameOfBtn5 = "clear"/>
 
 
     </>
@@ -16,3 +16,4 @@ function App() {
 }
 
 export default App;
+
