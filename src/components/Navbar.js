@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
+
 export default function Navbar(props) {
   return (
   
@@ -44,7 +45,11 @@ export default function Navbar(props) {
   )
 }
 Navbar.prototype = {
-  title: PropTypes.string,
-  Home: PropTypes.string
+  title: PropTypes.string.isRequired,
+  Home: PropTypes.string.isRequired
 
+}
+Navbar.defaultProps = {
+  title: "Set title here",
+  Home:"your home Name"
 }
