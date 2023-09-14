@@ -53,9 +53,9 @@ export default function Textform(props) {
   return (
     <>
       <div className="container">
-        <div className="mb-3">
-          <h1>{props.heading}</h1>
-          <textarea className="form-control" id="exampleFormControlTextarea1" onChange = {onchangetext} value={text} rows="8"></textarea>
+        <div className="mb-3" style={{color: props.mode === "dark" ? "white":"black"}}>
+          <h1>{props.heading}  </h1>
+          <textarea className="form-control" style = {{color: props.mode === "dark" ? "white":"black",backgroundColor: props.mode==="dark"?"black":"white"}} id="exampleFormControlTextarea1" onChange = {onchangetext} value={text} rows="8"></textarea>
         </div>
 
         <div className="btnclass">
@@ -65,7 +65,7 @@ export default function Textform(props) {
           <button type="button" onClick={pastetext} className="btn btn-primary mx-4" >{props.nameOfBtn4} </button>
           <button type="button" onClick={cleartext} className="btn btn-primary mx-4" >{props.nameOfBtn5} </button>
         </div>
-        <div className="infotext my-5">
+        <div className="infotext my-5" style={{color:props.mode === "dark"?"white":"black"}}>
           <h1>Your text info</h1>
           <p>{text.split(" ").length} words , {text.length} charcters(including spaces)</p>
           <p> time to reaad :</p>
@@ -73,7 +73,7 @@ export default function Textform(props) {
           <p>average readers : {0.2 *(text.split(" ").length)} seconds ,({(0.2/60) *(text.split(" ").length)} minutes)</p>
           <p>Fast readers : {0.13333333333 *(text.split(" ").length)} seconds, ({(0.13333333333/60) *(text.split(" ").length)}) minutes</p>
         </div>
-        <div className="previewtext">
+        <div className="previewtext" style={{color: props.mode === "dark" ? "white":"black"}}>
           <h2>Preview</h2>
           <p>{text}</p>
         </div>
