@@ -8,12 +8,15 @@ export default function Textform(props) {
    
      let newtext = text.toUpperCase()
      setText(newtext)
+    props.alert("coverted to uppercase", "success")
+     
   };
 
   const Convertolo = () => {
     
      let newtext = text.toLowerCase()
      setText(newtext)
+     props.alert("coverted to lowercase", "success")
   };
 
   const CopyText = () => {
@@ -28,6 +31,7 @@ export default function Textform(props) {
     console.error("Error copying text: ", error);
     alert("Failed to copy text to clipboard.");
   });
+  props.alert("text copied to clipboard", "success")
     // alert("text copied")
   };
   const pastetext = async () => {
@@ -49,6 +53,7 @@ export default function Textform(props) {
   };
   const cleartext = () =>{
     setText(" ")
+    props.alert("text cleared", "success")
   }
   return (
     <>
